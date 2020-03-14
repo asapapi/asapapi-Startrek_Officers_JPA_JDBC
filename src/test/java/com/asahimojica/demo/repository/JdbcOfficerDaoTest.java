@@ -42,6 +42,13 @@ class JdbcOfficerDaoTest {
         assertEquals(expected, actual);
 
     }
+    @Test
+    void createOfficerAndAddedToDatabase(){
+        Officer testOfficer = new Officer(6l,Rank.ADMIRAL,"Asahi", "Mojica");
+       Officer expected = new Officer(jdbcOfficerDao.countOfficers()+1L,Rank.ADMIRAL,"Asahi","Mojica");
+       assertEquals(expected,jdbcOfficerDao.save(testOfficer));
+
+    }
 
 
 }

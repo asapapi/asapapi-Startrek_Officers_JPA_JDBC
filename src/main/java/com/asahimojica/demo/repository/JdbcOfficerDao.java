@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class JdbcOfficerDao {
@@ -50,5 +52,14 @@ public class JdbcOfficerDao {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
+    }
+
+
+    public Officer save(Officer testOfficer) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("officer_rank",testOfficer.getRank());
+        parameters.put("first_name", testOfficer.getFirst());
+        parameters.put("last_name",testOfficer.getLast());
+        return testOfficer;
     }
 }
