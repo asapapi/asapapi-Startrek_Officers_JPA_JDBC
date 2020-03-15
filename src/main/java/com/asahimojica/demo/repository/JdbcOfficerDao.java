@@ -62,4 +62,8 @@ public class JdbcOfficerDao {
         parameters.put("last_name",testOfficer.getLast());
         return testOfficer;
     }
+
+    public Officer removeById(long id) {
+        return jdbcTemplate.update("delete from officers where id=?",id == 1l);
+    }
 }

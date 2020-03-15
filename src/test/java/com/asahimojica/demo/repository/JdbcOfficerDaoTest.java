@@ -49,6 +49,15 @@ class JdbcOfficerDaoTest {
        assertEquals(expected,jdbcOfficerDao.save(testOfficer));
 
     }
+    @Test
+    void deleteOfficer(){
+        Officer testOfficer = new Officer(6l,Rank.COMMANDER,"hello", "World");
+        Officer expected = jdbcOfficerDao.findById(6l);
+        System.out.println(expected);
+        Officer actual = jdbcOfficerDao.removebyId(6l);
+
+
+    }
 
 
 }
